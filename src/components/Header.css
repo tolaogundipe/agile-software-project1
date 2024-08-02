@@ -1,0 +1,35 @@
+header {
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-logo {
+    margin: 0;
+    color: #FF7C03;
+    text-decoration: none;
+}
+
+.header-logo h1{
+    transition: transform 0.3s ease;
+}
+.header-logo h1:hover{
+    transform: scale(1.1);
+}
+
+header nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 0 1em;
+    padding: 5px;
+    transition: border 0.1s ease;
+}
+
+  header nav a:hover {
+    border: 2px solid #FF7C03; 
+  }
+  

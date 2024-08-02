@@ -1,0 +1,132 @@
+.recipe-main {
+    padding: 3em 10em;
+    background-color: #fff8f1;
+}
+
+.recipe-hero {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.recipe-image {
+    width: 500px;
+    height: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.recipe-details {
+    flex: 1;
+}
+
+.recipe-details h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.recipe-author {
+    font-size: 1.2em;
+    color: #777;
+}
+
+.recipe-rating span {
+    font-size: 1.5em;
+    color: #FF7C03;
+}
+
+.recipe-description {
+    margin: 1em 0;
+    font-size: 1.2em;
+}
+
+.recipe-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.recipe-buttons .save-button, 
+.recipe-buttons .print-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF7C03;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.recipe-buttons .save-button:hover, 
+.recipe-buttons .print-button:hover {
+    background-color: #FF7C03;
+}
+
+.recipe-ingredients, .recipe-directions {
+    margin-top: 1.5em;
+    padding: 1.5em;
+    border-radius: 8px;
+}
+
+.recipe-ingredients h2, .recipe-directions h2, .recipe-video h2, .nutrition-info h2 {
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.recipe-ingredients ul, .recipe-directions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recipe-ingredients li, .recipe-directions li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #ffe1b2;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.recipe-ingredients li span, .recipe-directions li span {
+    background-color: #FF7C03;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #dfe6e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.video-placeholder .play-button {
+    font-size: 2em;
+    color: #2d3436;
+}
+
+.nutrition-info, .recipe-video{
+    padding: 1.5em;
+    margin-top: 1.5em;
+}
+
+.nutrition-info table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.nutrition-info table td {
+    padding: 8px;
+    border-top: 1px solid #bdc3c7;
+    border-bottom: 1px solid #bdc3c7;
+    border-left: none;
+    border-right: none;
+}
