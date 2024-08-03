@@ -3,7 +3,6 @@ import './ArticlePage.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ArticleCard from '../components/ArticleCard';
-import SearchBar from '../components/SearchBar';
 
 const ArticlePage = () => {
     return (
