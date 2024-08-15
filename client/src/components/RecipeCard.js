@@ -1,14 +1,21 @@
 // RecipeCard.js
-import React from 'react';
-import './RecipeCard.css';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./RecipeCard.css";
 
-const RecipeCard = ({ title, image, time, difficulty }) => {
+const RecipeCard = ({ id, title, image, time, difficulty }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/recipe/${id}`);
+  };
+
   return (
-    <div className="recipe-card">
+    <div className="recipe-card" onClick={handleClick}>
       <img src={image} alt={title} className="recipe-card-image" />
       <div className="recipe-card-content">
-        <a href='/recipe-page'><h3>{title}</h3></a>
-        <p>Time: {time}</p>
+        <h3>{title}</h3>
+        <p>Time: {time} minutes</p>
         <p>Difficulty: {difficulty}</p>
       </div>
     </div>
