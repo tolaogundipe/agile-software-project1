@@ -23,6 +23,23 @@ application.get("/recipes", async (request, response) => {
   }
 });
 
+// Route to get a recipe by ID
+application.get("/recipe/:id", async (request, response) => {
+  const { id } = request.params;
+  console.log(request.params);
+
+  try {
+    const recipe = await Recipe.findById(id);
+    if (!recipe) {
+      return response.status(404).json({ error: "Recipe not found" });
+    }
+    return response.json({ recipe });
+  } catch (error) {
+    console.error("Error fetching recipe:", error);
+    return response.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 // Start server
 const PORT = process.env.PORT || 3000;
 application.listen(PORT, () => {
