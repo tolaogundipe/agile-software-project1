@@ -1,12 +1,39 @@
-import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import RecipeCard from '../components/RecipeCard';
-import SearchBar from '../components/SearchBar';
-import './HomePage.css';
+import React, { useEffect, useState } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import RecipeCard from "../components/RecipeCard";
+import SearchBar from "../components/SearchBar";
+import "./HomePage.css";
+import { stubRecipe } from "../constants/stub";
 
-const HomePage = () => (
-    <div>
+// prettier-ignore
+const HomePage = () => {
+    // If cannot fetch data from the server, use stub data
+    const [recipes, setRecipes] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("http://localhost:3000/recipes");
+
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+
+                const text = await response.text();
+                const data = JSON.parse(text);
+                console.log("Parsed data:", data);
+                setRecipes(data.recipes);
+            } catch (error) {
+                console.error("Error parsing JSON or network issue:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+    
+  return (  
+    <>
         <Header />
         <main>
             <section className="hero">
@@ -20,55 +47,30 @@ const HomePage = () => (
                     <div className='hero-image-container'>
                         <img src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg" alt="Delicious food" className="hero-image" />
                     </div>
-                    
                 </div>
-                <SearchBar></SearchBar>
+                <SearchBar />
             </section>
             <section className="featured-recipes">
                 <h3>Featured Recipes</h3>
                 <div className="recipe-grid">
-                    <RecipeCard 
-                        title="Eco Friendly Recipe"
-                        image="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        time="5 mins"
-                        difficulty="Easy"
-                    />
-                    <RecipeCard
-                        title="Eco Friendly Recipe"
-                        image="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        time="5 mins"
-                        difficulty="Easy"
-                    />
-                    <RecipeCard
-                        title="Eco Friendly Recipe"
-                        image="https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg"
-                        time="5 mins"
-                        difficulty="Easy"
-                    />
-                    <RecipeCard
-                        title="Eco Friendly Recipe"
-                        image="https://images.pexels.com/photos/2181151/pexels-photo-2181151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        time="5 mins"
-                        difficulty="Easy"
-                    />
-                    <RecipeCard
-                        title="Eco Friendly Recipe"
-                        image="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        time="5 mins"
-                        difficulty="Easy"
-                    />
-                    <RecipeCard
-                        title="Eco Friendly Recipe"
-                        image="https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        time="5 mins"
-                        difficulty="Easy"
-                    />
-                    {/* Add more RecipeCard components as needed */}
+                    {recipes.map((recipes, index) => {
+                        return (
+                            <RecipeCard
+                                key={index}
+                                id={recipes._id}
+                                title={recipes.title}
+                                image={recipes.image}
+                                time={recipes.time}
+                                difficulty={recipes.difficulty}
+                            />
+                        );
+                    })}
                 </div>
             </section>
         </main>
         <Footer />
-    </div>
-);
+    </>
+  );
+};
 
 export default HomePage;
