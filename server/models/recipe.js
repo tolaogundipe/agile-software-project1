@@ -5,11 +5,11 @@ const recipeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  ingredients: {
-    type: [String],
+  author: {
+    type: String,
     required: true,
   },
-  instructions: {
+  difficulty: {
     type: String,
     required: true,
   },
@@ -17,9 +17,58 @@ const recipeSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  difficulty: {
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5,
+    required: true,
+  },
+  description: {
     type: String,
     required: true,
+  },
+  ingredients: {
+    type: [String],
+    required: true,
+  },
+  instructions: {
+    type: Map,
+    of: String,
+    required: true,
+  },
+  nutrition: {
+    calories: {
+      type: String,
+      required: true,
+    },
+    totalFat: {
+      type: String,
+      required: true,
+    },
+    saturatedFat: {
+      type: String,
+      required: true,
+    },
+    cholesterol: {
+      type: String,
+      required: true,
+    },
+    sodium: {
+      type: String,
+      required: true,
+    },
+    totalCarbohydrates: {
+      type: String,
+      required: true,
+    },
+  },
+  movie: {
+    type: String,
+    required: false,
+  },
+  image: {
+    type: String,
+    required: false,
   },
 });
 
