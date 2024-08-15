@@ -1,25 +1,32 @@
 .recipe-card {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 1em;
-    margin: 1em;
-    text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1em;
+  margin: 1em;
+  text-align: center;
+  background: white;
+  transition: box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .recipe-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 
 .recipe-card h4 {
-    margin: 0.5em 0;
+  margin: 0.5em 0;
 }
 
 .recipe-card p {
-    color: #555;
+  color: #555;
 }
-.recipe-card a{
-    text-decoration: none;
-    color: #FF7C03;
+.recipe-card a {
+  text-decoration: none;
+  color: #ff7c03;
 }
