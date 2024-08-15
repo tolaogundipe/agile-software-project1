@@ -26,7 +26,8 @@
 .recipe-card p {
   color: #555;
 }
-.recipe-card a {
+
+.recipe-card h3 {
   text-decoration: none;
   color: #ff7c03;
 }
