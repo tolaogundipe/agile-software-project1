@@ -177,3 +177,42 @@ export const stubRecipe = [
       image: "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
   ];
+
+// prettier-ignore
+export const stubArticle = [
+  {
+    title: "The Rise of NoSQL Databases",
+    date: "2024-08-15",
+    author: "Alex Johnson",
+    content: "NoSQL databases have seen a significant rise in popularity due to their flexibility and scalability. Unlike traditional relational databases, NoSQL databases handle unstructured data and scale horizontally, making them ideal for modern applications.",
+    image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  },
+  {
+    title: "Understanding MongoDB",
+    date: "2024-08-10",
+    author: "Sara Lee",
+    content: "MongoDB is a popular NoSQL database known for its document-oriented storage. It uses JSON-like documents with dynamic schemas, allowing developers to work with data in a more flexible way compared to traditional relational databases.",
+    image: "https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  },
+  {
+    title: "The Benefits of Document Databases",
+    date: "2024-08-05",
+    author: "Chris Martin",
+    content: "Document databases like MongoDB offer several advantages including ease of use, scalability, and the ability to handle complex data structures. These databases store data in JSON-like documents, which can be nested and have varying structures.",
+    image: "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg"
+  },
+  {
+    title: "Getting Started with Mongoose",
+    date: "2024-08-01",
+    author: "Jordan Smith",
+    content: "Mongoose is a powerful library for Node.js that provides a straightforward way to interact with MongoDB. It offers a schema-based solution to model your application data and is known for its flexibility and ease of use.",
+    image: "https://images.pexels.com/photos/2181151/pexels-photo-2181151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  },
+  {
+    title: "Best Practices for NoSQL Databases",
+    date: "2024-07-25",
+    author: "Taylor Brown",
+    content: "When working with NoSQL databases, it's important to follow best practices to ensure optimal performance and data integrity. This includes understanding the data model, choosing the right database for your needs, and effectively managing schema changes.",
+    image: "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  }
+];
