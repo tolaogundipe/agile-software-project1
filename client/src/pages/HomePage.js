@@ -53,6 +53,7 @@ const HomePage = () => {
                 <div className="recipe-grid">
                     {recipes.map((recipes, index) => {
                         return (
+                            recipes.featured &&
                             <RecipeCard
                                 key={index}
                                 id={recipes._id}
