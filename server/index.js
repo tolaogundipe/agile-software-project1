@@ -27,7 +27,6 @@ application.get("/recipes", async (request, response) => {
 application.get("/recipe/:id", async (request, response) => {
   const { id } = request.params;
   console.log(request.params);
-
   try {
     const recipe = await Recipe.findById(id);
     if (!recipe) {
@@ -36,6 +35,30 @@ application.get("/recipe/:id", async (request, response) => {
     return response.json({ recipe });
   } catch (error) {
     console.error("Error fetching recipe:", error);
+    return response.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+application.get("/articles", async (request, response) => {
+  try {
+    const articles = await Article.find({});
+    return response.json({ articles });
+  } catch (error) {
+    console.error("Error fetching articles:", error);
+    return response.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+application.get("/article/:id", async (request, response) => {
+  const { id } = request.params;
+  try {
+    const article = await Article.findById(id);
+    if (!article) {
+      return response.status(404).json({ error: "Article not found" });
+    }
+    return response.json({ article });
+  } catch (error) {
+    console.error("Error fetching article:", error);
     return response.status(500).json({ error: "Internal Server Error" });
   }
 });

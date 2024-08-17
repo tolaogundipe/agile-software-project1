@@ -12,21 +12,23 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import "@fontsource/montserrat";
 import './App.css';
 
-const App = ({ useRouter = true }) => {
-    const appContent = (
-        <div className="App">
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/recipes" element={<RecipeListPage />} />
-                <Route path="/create-recipe" element={<GenerateRecipePage />} />
-                <Route path="/article-page" element={<ArticlePage />} />
-                <Route path="/recipe-page" element={<RecipePage />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/articles" element={<ArticleListPage />} />
-                {/* Add more routes as needed */}
-            </Routes>
-        </div>
+const App = () => {
+    return (
+        <Router>
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/recipes" element={<RecipeListPage />} />
+                    <Route path="/create-recipe" element={<GenerateRecipePage />} />
+                    <Route path="/article-page" element={<ArticlePage />} />
+                    <Route path="/recipe/:id" element={<RecipePage />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/articles" element={<ArticleListPage />} />
+                    {/* Add more routes as needed */}
+                </Routes>
+            </div>
+        </Router>
     );
 
     return useRouter ? <Router>{appContent}</Router> : appContent;

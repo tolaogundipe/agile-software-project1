@@ -8,30 +8,28 @@ import { stubRecipe } from "../constants/stub";
 
 // prettier-ignore
 const HomePage = () => {
-    // If cannot fetch data from the server, use stub data
     const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
+        const API_ENDPOINT = process.env.API_ENDPOINT || "http://localhost:3000";
         const fetchData = async () => {
             try {
-                const response = await fetch("http://localhost:3000/recipes");
-
+                const response = await fetch(`${API_ENDPOINT}/recipes`);
                 if (!response.ok) {
                     throw new Error("Network response was not ok");
                 }
-
                 const text = await response.text();
                 const data = JSON.parse(text);
                 console.log("Parsed data:", data);
                 setRecipes(data.recipes);
             } catch (error) {
                 console.error("Error parsing JSON or network issue:", error);
+                setRecipes(stubRecipe); // Use the stub recipe data if the API call fails
             }
         };
-
         fetchData();
     }, []);
-    
+
   return (  
     <>
         <Header />
@@ -55,6 +53,7 @@ const HomePage = () => {
                 <div className="recipe-grid">
                     {recipes.map((recipes, index) => {
                         return (
+                            recipes.featured &&
                             <RecipeCard
                                 key={index}
                                 id={recipes._id}
